@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
-public static class IndexMove 
-{ 
+public static class IndexMove
+{
 	static MoveType moveType;
 	static int index1;
 	static int index2;
@@ -19,12 +19,12 @@ public static class IndexMove
 		index2 = CalculateSecondIndex();
 
 		if (MoveStatus() && MatchStatus())
-		{  
+		{
 			Debug.Log("HAMLEDE EÞLEÞME VAR!");
 			UIController.instance.SetMatchImage(true);
 		}
 		else
-		{
+		{ 
 			Debug.Log("HAMLEDE EÞLEÞME YOK!");
 			UIController.instance.SetMatchImage(false);
 		}
@@ -37,8 +37,7 @@ public static class IndexMove
 		switch (moveType)
 		{
 			case MoveType.Up:
-				if (index1 >= ((LevelController.instance.levelBoard.Width - 1) * LevelController.instance.levelBoard.Height)
-					&& index1 < (LevelController.instance.levelBoard.Width * LevelController.instance.levelBoard.Height))
+				if (index1 > ((LevelController.instance.levelBoard.Width - 1) * LevelController.instance.levelBoard.Height))
 					return false;
 				else
 					return true;
